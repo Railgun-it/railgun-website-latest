@@ -1,0 +1,128 @@
+﻿@model System.Collections.Generic.IEnumerable<Category>
+@using System.Collections.Generic
+@using web.railgun.com.Models
+
+
+<!-- Slider Section -->
+<section id="slider" class="slider-section">
+    <!-- MasterSlider -->
+    <div id="home-focuz-main-slider" class="master-slider-parent focuz-main-slider ms-parent-id-2" align="center" valign="center" bgcolor="#E6E6FA">
+        <!-- MasterSlider Main -->
+
+
+        <div style="padding:15px">
+            <iframe width="690" height="390" src="https://www.youtube.com/embed/zplplZp6NpQ?rel=0" frameborder="1" allowfullscreen></iframe>
+        </div>
+        <!-- END MasterSlider Main -->
+    </div>
+    <!-- END MasterSlider -->
+</section>
+<!-- Slider Section End -->
+<!-- Action Section -->
+<section id="railgunInnovative" class="callout-action top-part">
+    <div class="callout-action-area polygon-bg relative">
+        <div class="overlay-effects box-pattern"></div>
+        <div class="container">
+            <div class="callout-content relative section-padding bp0 clearfix">
+                <div class="col-md-8">
+                    <div class="row">
+                        <h1>Business <span>Technology  </span>Redefined</h1>
+                        <p class="action-description">
+                            We’re a London based technology company specialising in web development, mobile applications, ecommerce systems and interactive reporting suites. 
+                            We provide digital services to small and medium sized businesses who want to advance their presence online. Using market leading 
+                            technologies we will help you meet your digital objectives.                        
+
+                    </div><!-- /.row -->
+                </div><!-- /.col-md-8 -->
+
+                <div class="col-md-4 text-right">
+                    <a href="#contact" class="btn md-btn purchase">
+                        Get a <span style="color:#00a1cb">free </span>initial consultation!
+                    </a>
+                </div><!-- /.col-md-4 -->
+            </div><!--  /.callout-content -->
+        </div><!--  /.container -->
+    </div><!--  /.callout-action-area -->
+</section>
+<!-- Action Section  End -->
+@{
+    Html.RenderPartial("~/Views/Home/Products.cshtml", Model);
+
+    <section id="top-action-section" class="callout-action top-part">
+        <div class="callout-action-area polygon-bg relative">
+            <div class="overlay-effects box-pattern"></div>
+            <div class="container">
+                <div class="callout-content relative section-padding bp0 clearfix">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <h1>Contact us today for an initial consultation <span>free of charge!</span></h1>
+                            <p class="action-description">
+                                Worried about how much this is going to cost? Don't be. We <span style="color:#00a1cb">price by feature</span> - only pay for what you need!
+                            </p>
+
+                        </div><!-- /.row -->
+                    </div><!-- /.col-md-8 -->
+
+                    <div class="col-md-4 text-right">
+                        <a href="#contact" class="btn md-btn purchase">
+                            Talk to us now
+                        </a>
+                    </div><!-- /.col-md-4 -->
+                </div><!--  /.callout-content -->
+            </div><!--  /.container -->
+        </div><!--  /.callout-action-area -->
+    </section>
+
+
+    Html.RenderPartial("~/Views/Home/Services.cshtml", (IEnumerable<Value>)ViewBag.Services);
+
+
+
+    <section id="top-action-section" class="callout-action top-part">
+        <div class="callout-action-area polygon-bg relative">
+            <div class="overlay-effects box-pattern"></div>
+            <div class="container">
+                <div class="callout-content relative section-padding bp0 clearfix">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <h1 style="color:white">"Railgun got my online card sales project up and running from nothing in 13 days" - Tom Boating</h1>
+                            <p class="action-description">
+                              Tell us about your ideas and watch us make them happen!
+                            </p>
+
+                        </div><!-- /.row -->
+                    </div><!-- /.col-md-8 -->
+
+                    <div class="col-md-4 text-right">
+                        <a href="@Url.Action("Projects", "Home", null, Request.Url.Scheme)" class="btn md-btn purchase">
+                          View Our Projects
+                        </a>
+                    </div><!-- /.col-md-4 -->
+                </div><!--  /.callout-content -->
+            </div><!--  /.container -->
+        </div><!--  /.callout-action-area -->
+    </section>
+
+
+@*<div class="dark-bg">
+    <div class="callout-content p30 lrp15 clearfix wow bounceInUp" data-wow-delay=".1s">
+        <div class="col-md-9">
+            <h1 style="color:white">"Railgun got my online card sales project up and running from nothing in 13 days" - Tom Boating</h1>
+        </div><!-- /.col-md-9 -->
+        <div class="col-md-3 text-right">
+         
+            <br />
+            <br />
+            <a href="~/Home/Projects" class="btn md-btn purchase m0">
+                View our projects <i class="fa fa-hand-o-right"></i>
+            </a>
+        </div><!-- /.col-md-4 -->
+    </div><!-- /.callout-action -->
+</div><!-- /.dark-bg -->*@
+
+
+<hr>
+
+
+   
+}

@@ -1,0 +1,262 @@
+﻿@model IEnumerable<Category>
+@using web.railgun.com.Models
+
+@{
+
+    var pricings = (IEnumerable<PricingTier>)ViewData["pricings"];
+    var features = (IEnumerable<Feature>)ViewData["features"];
+    var testmonials = (IEnumerable<Testimonial>)ViewData["testimonials"];
+
+
+    var tabCount = 0;
+    var tab2Count = 0;
+}
+@*TOP LEVEL TAB*@
+
+
+
+<section id="pricing" class="pricing-section">
+    <div class="container">
+        <div class="section-padding">
+            <div class="title-container text-center">
+                <h2 class="striped-title">
+                    £££ <span>Prices</span>
+                    <span class="stripe-t-left"></span>
+                    <span class="stripe-t-back"></span>
+                    <span class="stripe-t-right"></span>
+                </h2>
+                <p class="section-description">
+                    We <span>price by feature</span> - you won't pay for anything you don't need
+                </p>
+            </div><!-- /.title-container -->
+
+            <div class="tabs-container tv2 tm50 p30">
+                <ul class="nav nav-tabs bm30 dtable mauto" role="tablist">
+                    @{
+                        foreach (var cat in Model)
+                        {
+                            var catId = cat.CategoryId;
+                            var href = "#ctab" + @catId;
+
+                            <li @if (tabCount.Equals(0)) { @Html.Raw("class='active'")                                 }>
+
+                                <span class="stripe-left"></span>
+                                <a href="@href" role="tab" data-toggle="tab" aria-expanded="true">@cat.Name</a>
+                                <span class="stripe-right"></span>
+                            </li>
+
+tabCount++;
+                        }
+
+
+                    }
+
+                </ul>
+
+                @*<div class="tab-content">
+                    <div class="tab-pane fade in active" id="ctab1">
+                        <h4 class="tm0"><span>Unlimited</span> Features </h4>
+                        <p>
+                            Proin in magna a ipsum viverra scelerisque eu nec turpis. Nunc vestibulum fringilla accumsan. Praesearcu turpis, ornare quis nunc vel, adipiscing porttitor lectus.
+                            Nulla sed odio lacinia dolor. Fusce aliquam sapien eu nunc. sollicitudin. In aliquam ligula quis nibh venenatis sollicitudin. Suspendisse fringilla neque eget congue vesti
+                            bulum. Duis id est eu elit aliquet blandit eu vel magna accun.
+                        </p>
+                    </div>*@
+
+                <div class="tab-content">
+                    @{
+                        foreach (var cat in Model)
+                        {
+                            var catId = cat.CategoryId;
+                            var DivId = "ctab" + @catId;
+                            <div id="@DivId" class="tab-pane fade @if (tab2Count.Equals(0)){ @Html.Raw("in active")}">
+
+
+                                @*<div class="row">
+                                        <div class="owl-container">
+                                            <div id="priceSlider" class="recent-post-slider owl-carousel owl-theme" data-pagination="false" data-screenitems="[[0, 1], [600, 2], [1000, 3], [1200, 4]]" data-items="4" data-autoplay="3000">
+
+                                                <div class="item col-sm-12">
+
+                                                    @foreach (var price in pricings.Where(x => x.CategoryId.Equals(cat.CategoryId)))
+                                                    {
+                                                        <div class="price-item text-center">
+                                                            <div class="stripe-full stripe-1 text-center">
+                                                                <h5 class="stripe-over">
+                                                                    @price.TierName
+                                                                </h5>
+                                                            </div>
+
+                                                            <div class="price-box">
+                                                                <div class="inner">
+                                                                    <span class="currency">£</span><span class="price-number">@price.FromPrice</span>
+                                                                    <span class="duration">As agreed</span>
+                                                                </div><!-- /.inner -->
+                                                            </div><!-- /.price-box -->
+
+                                                            <ul class="item-description">
+
+                                                                @foreach (var feature in features.Where(x=>x.PricingTierId.Equals(price.PricingTierId)))
+                                                                    {
+                                                                        <li> <i class="fa fa-spinner fa-spin"></i> @feature.Description</li>
+                                                                    }
+
+                                                            </ul>
+
+                                                            <div class="sign-up-link">
+                                                                <a href="#" class="sign-up btn md-btn full-btn m0">Sign Up Now</a>
+                                                            </div><!-- /.link -->
+                                                        </div><!-- /.price-item -->
+
+
+                                                    }
+
+
+                                                </div><!-- /.item col-sm-12 -->
+
+
+
+
+
+
+
+                                            </div><!-- /#priceSlider -->
+                                        </div>
+                                    </div><!-- /.row -->*@
+                                <div class="pricing-container">
+                                    <div class="row">
+                                        <div class="owl-container">
+                                            <div id="priceSlider" class="recent-post-slider owl-carousel owl-theme" data-pagination="false" data-screenitems="[[0, 1], [600, 2], [1000, 3], [1200, 4]]" data-items="4" data-autoplay="3000">
+
+                                                @foreach (var price in pricings.Where(x => x.CategoryId.Equals(cat.CategoryId)))
+                                                {
+                                                    <div class="item col-sm-12">
+                                                        <div class="price-item text-center">
+
+                                                            <div class="stripe-full stripe-1 text-center">
+                                                                <h5 class="stripe-over">
+                                                                    @price.TierName
+                                                                </h5>
+                                                            </div>
+
+                                                            <div class="price-box">
+                                                                <div class="inner">
+                                                                    <span class="duration">From</span>
+                                                                    <span class="currency">£</span><span class="price-number">@{ if (price.FromPrice == "0") { @Html.Raw("ASK") } else { @price.FromPrice}
+                                                }</span>
+
+                                                                </div><!-- /.inner -->
+                                                            </div><!-- /.price-box -->
+
+                                                            <ul class="item-description">
+
+                                                                @foreach (var feature in features.Where(x => x.PricingTierId.Equals(price.PricingTierId)))
+                                                                {
+                                                                    <li> <i class="fa fa-spinner fa-spin"></i> @feature.ShortDescription</li>
+                                                                }
+                                                            </ul>
+
+
+
+                                                            <div class="sign-up-link">
+                                                                <a href="#" class="sign-up btn md-btn full-btn m0">Get Started Now</a>
+                                                            </div><!-- /.link -->
+                                                        </div><!-- /.price-item -->
+                                                    </div><!-- /.item col-sm-12 -->
+                                                }
+
+
+
+                                            </div><!-- /#priceSlider -->
+                                        </div>
+                                    </div><!-- /.row -->
+                                </div><!-- /.pricing-container -->
+
+
+                            </div><!-- /.tab-pane -->
+                                                tab2Count++;
+                        }
+                    }
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<hr>
+
+<!-- Testimonial Section -->
+<section id="testimonial" class="pricing-section">
+    <div class="container">
+        <div class="section-padding">
+            <div class="title-container text-center">
+                <h2 class="striped-title">
+                    Positive <span> Testimonials </span>
+                    <span class="stripe-t-left"></span>
+                    <span class="stripe-t-back"></span>
+                    <span class="stripe-t-right"></span>
+                </h2>
+                <p class="section-description">
+                    Don't take our word for it - we’ve worked for a lot of people we'd like to thing they're pretty pleased with us!
+                </p>
+            </div><!-- /.title-container -->
+
+            <div class="owl-container">
+                <div class="carousel-navigator text-center">
+                    <button class="btn nav-btn sm-btn rbtn prev tprev"><i class="fa fa-long-arrow-left"></i></button>
+                    <button class="btn nav-btn sm-btn rbtn next tnext"><i class="fa fa-long-arrow-right"></i></button>
+                </div>
+
+                <div  id="testimonialSlider" class="testimonial-slider owl-carousel p0 owl-theme" data-pagination="false" data-screenitems="[[0, 1], [600, 2], [1000, 3]]" data-items="4">
+
+                    @foreach (var testi in testmonials)
+                    {
+                        <div class="item col-sm-12">
+                            <div class="testimonial-item">
+                                <div class="client-img">
+                                    <img style="background-color:white" src="@testi.ImageURL" alt="Client Image">
+                                </div><!-- /.client-img -->
+
+                                <div class="testimonial-txt text-center">
+                                    <p>
+                                        @testi.Text
+                                    </p>
+                                </div><!-- /.testimonial-txt -->
+
+                                <div class="testimonial-footer">
+                                    <h6 class="inline clinet-name">@testi.Name</h6>
+                                    <span class="client-company">
+                                        @testi.JobTitle
+                                    </span>
+
+                                    <div class="client-rating pull-right">
+                                        @{
+                        var stars = testi.StarRating;
+
+                        for (int i = 0; i < testi.StarRating; i++)
+                        {
+                            <i class="fa fa-star"></i>
+
+                        }
+
+                                        }
+
+
+
+                                    </div>
+                                </div><!-- /.testimonial-footer -->
+                            </div><!-- /.testimonial-item -->
+                        </div><!-- /.item col-sm-12 -->
+
+                    }
+
+                </div><!--  /#testimonialSlider -->
+            </div><!-- /.owl-container -->
+        </div><!-- /.section-padding -->
+    </div><!-- /.container -->
+</section><!-- /#testimonial -->
+<!-- Testimonial Section End -->

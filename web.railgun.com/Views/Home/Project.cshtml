@@ -1,0 +1,338 @@
+﻿@using web.railgun.com.Models
+@model Project
+
+@{
+    ViewBag.Title = "Project";
+
+    var projects = (IEnumerable<Project>)ViewBag.Projects;
+}
+
+<!-- Page Header Section  -->
+<section id="site-page-header" class="site-page-header blog-header">
+    <div class="overlay-effects box-pattern index-1"></div>
+    <div class="container">
+        <div class="page-header-content display-table-middle">
+            <div class="inside-content vertical-middle">
+                <h1 class="page-title text-center highlighted">Railgun.it portfolio</h1>
+                <h3 class="page-description text-center">@Model.Name</h3>
+            </div>
+        </div><!--  /.page-header-content -->
+        <div class="site-breadcrumb pull-right">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Portfolio</a></li>
+                <li class="breadcrumb-item active">@Model.Name</li>
+            </ol>
+        </div>
+    </div><!--  /.container -->
+</section><!-- /#page-header  -->
+<!-- Page Header Section End -->
+<!-- Works Section -->
+<section id="works" class="clearfix">
+    <div class="container">
+        <div class="section-padding">
+
+
+            <div class="portfolio-single">
+
+                <div class="item cat-2 cat-4">
+                    <div class="row">
+
+                        <div class="col-md-12 md-bm30">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="portfolio-images border-style bm50">
+                                        <figure>
+                                            <img src="@Model.Graphic1" alt="@Model.Name Image">
+                                        </figure>
+                                    </div><!-- /.portfolio-item -->
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="stripe-full bm50">
+                                        <h4 class="stripe-over stripe-blue tm0">
+                                            Project: <span>@Model.Name</span>
+                                        </h4>
+                                        @*<div class="project-like">138 <i class="fa fa-heart-o"></i></div>*@
+                                    </div><!-- /.stripe-full -->
+                                    <ul class="project-meta">
+                                        <li>
+                                            <span class="meta-icon"><i class="fa fa-tag"></i></span>
+                                            <span class="meta-name">Categories</span>
+                                            <span class="meta-text pull-right">@Model.Categories</span>
+                                        </li>
+                                        <li>
+                                            <span class="meta-icon"><i class="fa fa-pencil"></i></span>
+                                            <span class="meta-name">Team Lead</span>
+                                            <span class="meta-text pull-right">@Model.TeamLead</span>
+                                        </li>
+                                        <li>
+                                            <span class="meta-icon"><i class="fa fa-calendar"></i></span>
+                                            <span class="meta-name">Date Initiated</span>
+                                            <span class="meta-text pull-right"><time datetime="2014-12-14 19:00">@(((DateTime)Model.DateInitiated).ToString("dd/MM/yyyy"))</time></span>
+                                        </li>
+                                        <li>
+                                            <span class="meta-icon"><i class="fa fa-users"></i></span>
+                                            <span class="meta-name">Clients</span>
+                                            <span class="meta-text pull-right">@Model.Clients</span>
+                                        </li>
+                                        <li>
+                                            <span class="meta-icon"><i class="fa fa-briefcase"></i></span>
+                                            <span class="meta-name">Tech</span>
+                                            <span class="meta-text pull-right dotdot">@Model.TechnologiesUsed</span>
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <a href="@Model.ProjectURL" class="btn full-btn md-btn"> Launch Project Website <i class="fa fa-rocket"></i></a>
+                                    </div>
+                                    <div>
+                                        <a href="@Model.GitRepo" class="btn full-btn md-btn">GitHub <i class="fa fa-github"></i></a>
+                                    </div>
+                                </div><!-- /.col-md-4 -->
+                            </div><!-- /.row -->
+                        </div><!-- /.col-md-12 -->
+
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="stripe-full bm50">
+                                    <h4 class="stripe-over stripe-blue tm0">
+                                        Project <span>Description</span>
+                                    </h4>
+                                </div><!-- /.stripe-full -->
+
+                                <div class="post-container project-description">
+                                    <p>
+                                        @Html.Raw(Model.Description)
+                                    </p>
+                                </div><!-- /.project-description -->
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="row">
+                                    <div class="col-md-2 col-md-offset-5">
+                                        <div class="row text-center">
+                                            <h4 class="stripe-over stripe-blue tm0">
+                                                Company <span>Synopsis</span>
+                                            </h4>
+                                            <br />
+                                        </div>
+                                        <div class="row text-center">
+                                            <a href="@Model.CompanyURL">
+                                                <img class="portfolio-item" style="padding:10px;padding-top:30px; padding-bottom:25px" src="@Model.Logo" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+
+                                <div class="post-container project-description">
+
+                                    <p>
+                                        @Html.Raw(Model.CompanyDescription)
+                                    </p>
+                                </div><!-- /.project-description -->
+
+
+
+
+
+                            </div><!-- /.col-md-12 -->
+
+
+
+
+
+
+
+
+                        </div><!-- /.row -->
+
+                    </div><!-- /.item -->
+
+                </div><!-- /#portfolio-item -->
+            </div><!-- /.section-padding -->
+        </div><!-- /.container -->
+</section><!-- /#works -->
+<!-- Works Section End -->
+
+<hr>
+
+<section>
+    <div class="section-padding">
+        <div class="container">
+
+            <div class="share-box text-center dark-bg p30">
+                <h4 class="share-title">Want to know more? Here are some links to our code <span>repositories</span></h4>
+                <p>...Download the code for yourself!</p>
+                <div class="social-icons">
+                    <ul>
+                        <li>
+                            <a href="https://github.com/nadavdrewe">
+                                <div class="icon-content fa-github">Github</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://nadav808.visualstudio.com">
+                                <div class="icon-content fa-windows">VS Online</div>
+                            </a>
+                        </li>
+                        @*<li>
+                                <a href="#">
+                                    <div class="icon-content fa-google-plus">Google Plus</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="icon-content fa-pinterest">Pinterest</div>
+                                </a>
+                            </li>*@
+                    </ul>
+                </div><!-- /.social-icons -->
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+<section id="companyFacts">
+    <div class="section-padding tp0">
+        <div class="container">
+            <div class="title-container text-center">
+                <h2 class="striped-title">
+                    Company <span>Facts</span>
+                    <span class="stripe-t-left"></span>
+                    <span class="stripe-t-back"></span>
+                    <span class="stripe-t-right"></span>
+                </h2>
+                <p class="section-description">
+                    The Railgun Team love to work, here are some of our numbers from the past 24 hours:
+                </p>
+            </div><!-- /.title-container -->
+
+            <div class="fact-container owl-container">
+                <div id="factSlider" class="owl-carousel owl-theme" data-pagination="true" data-screenitems="[[0, 1], [600, 2], [1000, 3], [1100, 5]]" data-items="5" data-autoplay="3000">
+
+                    <div class="item lrp15">
+                        <div class="fact-item  text-center">
+                            <p class="stripe-bfixw fact-count">
+                                @{
+                                    var rand = new Random();
+                                    @rand.Next(8, 22);
+                                }
+                            </p>
+                            <h6 class="fact-details">Repository check-ins</h6>
+                            <div class="fact-icon">
+                                <i class="fa fa-check-square-o"></i>
+                            </div>
+                        </div><!-- /.fact-item -->
+                    </div><!-- /.item -->
+
+                    <div class="item lrp15">
+                        <div class="fact-item  text-center">
+                            <p class="stripe-bfixw fact-count">
+                                @rand.Next(40, 65)
+                            </p>
+                            <h6 class="fact-details">Average Hours of Work</h6>
+                            <div class="fact-icon">
+                                <i class="fa fa-clock-o"></i>
+                            </div>
+                        </div><!-- /.fact-item -->
+                    </div><!-- /.item -->
+
+                    <div class="item lrp15">
+                        <div class="fact-item  text-center">
+                            <p class="stripe-bfixw fact-count">
+                                @rand.Next(13, 25)
+                            </p>
+                            <h6 class="fact-details">Solved Tickets</h6>
+                            <div class="fact-icon">
+                                <i class="fa fa-ticket"></i>
+                            </div>
+                        </div><!-- /.fact-item -->
+                    </div><!-- /.item -->
+
+                    <div class="item lrp15">
+                        <div class="fact-item  text-center">
+                            <p class="stripe-bfixw fact-count">
+                                @rand.Next(20, 32)
+                            </p>
+                            <h6 class="fact-details">Cups of Earl Grey </h6>
+                            <div class="fact-icon">
+                                <i class="fa fa-coffee"></i>
+
+                            </div>
+                        </div><!-- /.fact-item -->
+                    </div><!-- /.item -->
+
+                    <div class="item lrp15">
+                        <div class="fact-item  text-center">
+                            <p class="stripe-bfixw fact-count">
+                                @rand.Next(4, 15)
+                            </p>
+                            <h6 class="fact-details">Hours playing Dota2</h6>
+                            <div class="fact-icon">
+                                <i class="fa fa-thumbs-up"></i>
+                            </div>
+                        </div><!-- /.fact-item -->
+                    </div><!-- /.item -->
+                </div><!-- /#factSlider -->
+
+            </div><!-- /.fact-container -->
+        </div><!-- /.container -->
+    </div><!-- /.section-padding -->
+</section><!-- /#companyFacts -->
+
+
+
+
+<section id="clients" class="clearfix clients">
+    <div class="container">
+        <div class="section-padding tp0">
+            <hr>
+            <br />
+            <hr>
+            <br />
+            <div class="title-container text-center">
+                <h2 class="striped-title tm0">
+                    our happy <span>clients</span>
+                    <span class="stripe-t-left"></span>
+                    <span class="stripe-t-back"></span>
+                    <span class="stripe-t-right"></span>
+                </h2>
+                <p class="section-description">
+                    We tend to work for innovative, disruptive businesses, all of whom are repeat clients. Ask them about how Railgun.it projects helped their business!
+                </p>
+            </div><!-- /.title-container -->
+
+
+            <div class="owl-container">
+                <div class="carousel-navigator text-center">
+                    <button class="btn nav-btn sm-btn rbtn prev"><i class="fa fa-long-arrow-left"></i></button>
+                    <button class="btn nav-btn sm-btn rbtn next"><i class="fa fa-long-arrow-right"></i></button>
+                </div>
+                <div id="clients-logo-carousel" class="logo-carousel owl-carousel pt50" data-pagination="false" data-screenitems="[[0, 1], [400, 2], [700, 3], [1000, 5], [1200, 6]]" data-items="6" data-autoplay="3000">
+
+                    @{
+                        foreach (var project in projects)
+                        {
+                            <div class="item">
+                                <div class="item-content">
+                                    <a href="@project.CompanyURL">
+                                        <img src="@project.Logo" alt="@project.Name Logo">
+                                    </a>
+                                </div>
+                            </div>
+
+                        }
+                    }
+
+                </div><!-- /#clients-logo-carousel -->
+
+            </div><!-- /.owl-slider -->
+
+        </div><!-- /.section-padding -->
+    </div><!-- /.container -->
+</section><!-- /#clients -->

@@ -1,0 +1,29 @@
+﻿@using web.railgun.com.Models
+
+@{
+    ViewBag.Title = "WhatWeDo";
+}
+<!-- Page Header Section  -->
+<section id="site-page-header" class="site-page-header blog-header polygon-bg">
+    <div class="overlay-effects box-pattern index-1"></div>
+    <div class="container">
+        <div class="page-header-content display-table-middle">
+            <div class="inside-content vertical-middle">
+                <h1 class="page-title text-center highlighted">Railgun services</h1>
+                <h3 class="page-description text-center">Coffee House, Building Wholesaler or Claims Management Company- we deliver the features that will give your business the edge</h3>
+            </div>
+        </div><!--  /.page-header-content -->
+        <div class="site-breadcrumb pull-right">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                <li class="breadcrumb-item active">Services</li>
+            </ol>
+        </div>
+    </div><!--  /.container -->
+</section><!-- /#page-header  -->
+<!-- Page Header Section End -->
+@{
+    Html.RenderPartial("~/Views/Home/Products.cshtml", (IEnumerable<Category>)ViewBag.Categories);
+    Html.RenderPartial("~/Views/Home/Services.cshtml");
+}
