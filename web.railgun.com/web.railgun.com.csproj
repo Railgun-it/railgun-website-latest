@@ -177,6 +177,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContactRequestsController.cs" />
+    <Compile Include="Controllers\DemoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -737,7 +738,9 @@
     <Content Include="images\ProjectLogos\PHR\logo.png" />
     <Content Include="images\ProjectLogos\Revel\logo.png" />
     <Content Include="images\ProjectLogos\Xero\logo.png" />
+    <Content Include="images\services\app.png" />
     <Content Include="images\services\Geckodashboard.png" />
+    <Content Include="images\services\page4.png" />
     <Content Include="images\shop\carousel\01.jpg" />
     <Content Include="images\shop\cart\01.jpg" />
     <Content Include="images\shop\cart\02.jpg" />
@@ -981,6 +984,7 @@
     <Folder Include="images\home\home-4\" />
     <Folder Include="images\home\home-9\" />
     <Folder Include="Views\ContactRequest\" />
+    <Folder Include="Views\Demo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -159,7 +159,7 @@ namespace web.railgun.com.Controllers
 
                 //ADDRESSING
                 theAsposeMessage.From = theSMTPClient.Username;
-                theAsposeMessage.To = @"info@railgunit.com;rob.edwards@railgunit.com";
+                theAsposeMessage.To = @"therailgunteam@railgunit.co.uk;emailnadz@gmail.com;rob.edwards@railgunit.com";
                 theAsposeMessage.Subject = "You got RailMail, fucko! A new client has something to tell you:";
                 var bodyMessage = "<h1>From:" + contactRequest.Email + " " + contactRequest.Name + " " + contactRequest.Phone + "</h1><br/>" + "<p>" + contactRequest.Request + "</p>";
                 theAsposeMessage.HtmlBody = bodyMessage;
